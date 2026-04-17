@@ -30,7 +30,7 @@ cd ../coauthor-wiki && git status
 
 ## Cursor rules
 
-- **Umbrella (this folder):** [.cursor/rules/](.cursor/rules/) for shared behavior (tone, planning, commits, prose style for markdown and Python). **Start here when lost:** [.cursor/rules/workspace-orientation.mdc](.cursor/rules/workspace-orientation.mdc) points agents at [WORKSPACE.md](WORKSPACE.md) and this file. **Pre-push cleanup and which repo to commit:** [.cursor/rules/pre-push-hygiene.mdc](.cursor/rules/pre-push-hygiene.mdc) (see [Where to commit](#where-to-commit-git) below). **Typography** (em dash and double hyphen in user-facing copy and docs): [.cursor/rules/no-em-dash.mdc](.cursor/rules/no-em-dash.mdc).
+- **Umbrella (this folder):** [.cursor/rules/](.cursor/rules/) for shared behavior (tone, planning, commits, prose style for markdown and Python). **Start here when lost:** [.cursor/rules/workspace-orientation.mdc](.cursor/rules/workspace-orientation.mdc) points agents at [WORKSPACE.md](WORKSPACE.md) and this file. **Stage, commit, and push per repo:** [.cursor/rules/pre-push-hygiene.mdc](.cursor/rules/pre-push-hygiene.mdc) (see [Where to commit](#where-to-commit-git) below). **Typography** (em dash and double hyphen in user-facing copy and docs): [.cursor/rules/no-em-dash.mdc](.cursor/rules/no-em-dash.mdc).
 - **Coprompter-only:** [coprompter/.cursor/rules/](coprompter/.cursor/rules/) for GUI and repo-specific rules when changing files under `coprompter/` (or matching paths when the workspace root is the coprompter repo alone).
 
 ### Precedence and scope

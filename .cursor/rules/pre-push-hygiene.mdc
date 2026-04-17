@@ -1,11 +1,11 @@
 ---
-description: Clean up and update docs before pushing; commit only in the repo that owns the files
+description: Stage, commit, and push per repo; clean up and docs before pushing
 alwaysApply: true
 ---
 
 # Pre-push hygiene
 
-When the user asks to **commit**, **push**, or **finish** work that will land in git:
+When the user asks to **commit**, **push**, **stage**, or **finish** work that will land in git:
 
 1. **Scope:** Only stage and commit files in the **repository that contains those paths** (see [AGENTS.md](AGENTS.md) § Where to commit). Do not mix unrelated subprojects in one commit unless the user explicitly asked for a single combined change across repos.
 
@@ -17,11 +17,12 @@ When the user asks to **commit**, **push**, or **finish** work that will land in
 
 5. **Umbrella-only files:** Files at the certara-labs parent (e.g. root `WORKSPACE.md`, `.cursor/`, `AGENTS.md`) live in the **parent** git repo ([certara-labs on GitHub](https://github.com/certara-bsiciliano/certara-labs)), not inside coprompter/coauthor-wiki/coauthor-testing. Commit them from the parent directory. Subrepos are listed in `.gitignore` there so nested `.git` folders are not duplicated.
 
-6. **Push every repo that had commits:** When the user asks to **stage, commit, and push** (or **push all** / equivalent) **without** limiting to one subproject, after committing:
-   - `git push` from the **certara-labs parent directory** (workspace root for this layout) if that repo has commits to send to `origin`.
-   - `git push` from **`coprompter/`** if you committed there.
-   - `git push` from **`coauthor-wiki/`** if you committed there.
-   - `git push` from **`coauthor-testing/`** if you committed there.
-   Use each repo’s current branch (usually `main`). Skip repos with **no new commits** or **nothing to push**. Report each remote result briefly.
+6. **Stage, commit, and push for each repository (multi-repo workflow):** When the user asks to **stage, commit, and push** (or **push all** / equivalent) **without** limiting to one subproject, treat each git root as its own pipeline. Repeat **in order** for: **certara-labs** (parent), **coprompter/**, **coauthor-wiki/**, **coauthor-testing/**. For **each** directory that is a git repository:
+
+   - **Stage:** `git add` (or selective add) only the paths that belong to **that** repo and match the current task. Skip the repo if it has **no** changes for this work.
+   - **Commit:** `git commit` in **that** repo if there is a non-empty staged change. Skip if nothing staged.
+   - **Push:** `git push` to `origin` on the current branch (usually `main`) if that repo now has **unpushed commits**. Skip if there is nothing to push.
+
+   Do **not** batch stage across repos in one command from the wrong cwd. Do **not** push only one repo when several had commits in this session unless the user narrowed scope. Report **stage → commit → push** outcome per repo briefly.
 
 Skip heavy doc or test work for trivial typo-only fixes when the user asks to push immediately.
