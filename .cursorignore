@@ -1,0 +1,26 @@
+# Dependencies and virtualenvs
+**/node_modules/
+**/.venv/
+**/venv/
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+**/$py.class
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/*.egg-info/
+
+# Builds and coverage
+**/dist/
+**/build/
+**/htmlcov/
+**/.coverage
+**/.tox/
+
+# OS
+.DS_Store
+
+# Git (indexing rarely needs objects)
+**/.git/objects/

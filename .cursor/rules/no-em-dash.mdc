@@ -1,0 +1,40 @@
+---
+description: Ban em dashes and double hyphens in user-facing strings and docs (not LLM prompt bodies or comments)
+globs: "**/*.md,**/*.py"
+alwaysApply: false
+---
+
+# No Em Dashes or Double Hyphens
+
+Never use em dashes (`—`) or use double hyphens (`--`) as a substitute for an em dash in:
+
+- **UI strings** (labels, button text, hints, tooltips, dialog messages, placeholders, status bar text, error messages)
+- **Slack messages** sent to users
+- **Markdown documentation** (READMEs, docs/, ROADMAP.md, etc.)
+- **Log entries** written to wiki articles (e.g. `log.md`)
+
+In **`*.py`**, treat string literals the same way when they are **user-facing** (what the user sees in the app). **Do not** apply this rule to **LLM system prompts**, **LLM instruction strings**, or **ordinary code comments**: those may use `--` or other punctuation as needed; rephrase GUI copy instead of changing prompt engineering style to satisfy typography rules.
+
+## Replacements
+
+| Instead of | Use |
+|---|---|
+| `"Got it — doing X..."` | `"Got it. Doing X..."` |
+| `"field — no explanation"` | `"field. No explanation."` |
+| `"X — Y"` (separator) | `"X: Y"` |
+| `"(P1 — use this for P0)"` | `"(P1; use this for P0)"` |
+| `"## 2026-01-01 -- Log entry"` | `"## 2026-01-01: Log entry"` |
+
+## Why
+
+Em dashes render inconsistently across plain-text contexts (Slack, terminal,
+Word, PDF). Double hyphens are an informal substitute that looks unpolished.
+Both are easy to avoid with a period, colon, or semicolon.
+
+## Exceptions (these are fine)
+
+- CLI flag names: `--config`, `--help`
+- Section divider lines in code: `# ---`
+- Code comments that use `--` for ASCII art or horizontal rules (outside user-visible UI copy)
+- Markdown tables that use `---` as column separators
+- **LLM system prompts and prompt-construction code** in `*.py` (see scope above)

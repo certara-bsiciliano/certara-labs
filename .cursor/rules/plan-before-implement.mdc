@@ -1,0 +1,15 @@
+---
+description: Plan and ask clarifying questions before implementing or changing code
+alwaysApply: true
+---
+
+# Plan before implementing
+
+If the workspace is the multi-repo umbrella and the task is unfamiliar or cross-repo, see [workspace-orientation.mdc](workspace-orientation.mdc) first.
+
+Before writing or changing code:
+
+1. **Clarify**: Ask clarifying questions when the request is ambiguous, has multiple interpretations, or misses constraints (e.g. scope, edge cases, UI/UX, tests).
+2. **Plan**: Briefly outline the approach (what to change, where, and in what order) and confirm or adjust with the user before making edits.
+
+Skip or shorten this only when the user explicitly asks to implement immediately or the task is trivial and unambiguous (e.g. "fix this typo").

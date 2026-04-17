@@ -1,0 +1,20 @@
+---
+description: Clean up and update docs before pushing; commit only in the repo that owns the files
+alwaysApply: true
+---
+
+# Pre-push hygiene
+
+When the user asks to **commit**, **push**, or **finish** work that will land in git:
+
+1. **Scope:** Only stage and commit files in the **repository that contains those paths** (see [AGENTS.md](AGENTS.md) § Where to commit). Do not mix unrelated subprojects in one commit unless the user explicitly asked for a single combined change across repos.
+
+2. **Cleanup:** Remove temporary debug code, stray prints, commented-out blocks left from exploration, and one-off scratch files. Do not commit secrets, tokens, `.env` with real credentials, or large generated artifacts the repo normally ignores.
+
+3. **Docs:** If the change affects behavior, setup, or commands users or agents rely on, update the relevant **README**, **AGENTS.md**, **CLAUDE.md**, or in-repo docs in **that same repo**. For wiki-facing product truth, follow [coauthor-wiki/AGENTS.md](coauthor-wiki/AGENTS.md) (including release status).
+
+4. **Checks:** Run the project’s usual checks before push when they exist (tests, lint, pre-commit, or scripts named in the repo’s README or DEVELOPMENT docs). If nothing is documented, say what you ran or that no standard check was found.
+
+5. **Umbrella-only files:** Files at the certara-labs parent (e.g. root `WORKSPACE.md`, `.cursor/`, `AGENTS.md`) are **not** inside the three subrepos unless you copy them there. If there is no git repo at the parent, either `git init` there for layout-only tracking or keep them local; do not assume they ship with coprompter/wiki/testing commits.
+
+Skip heavy doc or test work for trivial typo-only fixes when the user asks to push immediately.

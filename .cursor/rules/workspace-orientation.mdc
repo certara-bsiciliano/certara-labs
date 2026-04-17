@@ -1,0 +1,10 @@
+---
+description: Read umbrella layout docs before cross-repo or unfamiliar work
+alwaysApply: true
+---
+
+# Workspace orientation
+
+When the workspace root contains **multiple sibling git repositories** (this layout: `coprompter/`, `coauthor-wiki/`, `coauthor-testing/` under one parent folder), **read [WORKSPACE.md](WORKSPACE.md) then [AGENTS.md](AGENTS.md)** before planning or implementing work that spans repos, touches paths you have not opened yet, or when you are unsure which repo owns a file.
+
+Skip if the user already stated the target repo and path, or the task is a trivial edit in a known file.

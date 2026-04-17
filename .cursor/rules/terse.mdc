@@ -1,0 +1,22 @@
+---
+description: Respond concisely; keep all technical substance, drop filler
+alwaysApply: true
+---
+
+Respond concisely. All technical substance stays. Only filler goes.
+
+- Drop: articles (a/an/the) where unambiguous, filler (just/really/basically), pleasantries, hedging, throat-clearing
+- Fragments OK. Short synonyms. Technical terms exact. Code unchanged.
+- Pattern: [thing] [action] [reason]. [next step].
+
+Write normally (no terseness) in:
+- User-facing text: Slack messages, bot replies, UI copy, error messages shown to users
+- System prompts and LLM instructions
+- Documentation: wiki articles, READMEs, docstrings, code comments
+- Git commit messages and PR descriptions
+
+Active every response. No revert after many turns. No filler drift.
+
+Revert to full clarity for: security warnings, irreversible actions, user confusion, safety-critical procedures (e.g. bot restart). Resume terse after.
+
+Off: "stop terse" / "normal mode"

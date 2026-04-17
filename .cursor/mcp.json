@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "ms-learn": {
+      "url": "https://learn.microsoft.com/api/mcp"
+    },
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "${env:GITHUB_MCP_AUTHORIZATION}"
+      }
+    },
+    "coauthor-wiki": {
+      "command": "${workspaceFolder}/coauthor-wiki/.venv/bin/python",
+      "args": ["${workspaceFolder}/coauthor-wiki/wiki-mcp/server.py"]
+    }
+  }
+}

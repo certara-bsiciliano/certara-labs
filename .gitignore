@@ -1,0 +1,4 @@
+# Each subfolder is an independent git repository with its own remote.
+coprompter/
+coauthor-wiki/
+coauthor-testing/

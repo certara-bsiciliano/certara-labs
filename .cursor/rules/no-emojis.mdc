@@ -1,0 +1,12 @@
+---
+description: Do not use emojis in code or documentation
+alwaysApply: true
+---
+
+# No emojis
+
+**Do not use pictographic / multi-codepoint emojis** in code or markdown files (e.g. pictographic symbols used as decoration, skin-tone or ZWJ sequences).
+
+**Unicode characters are acceptable**, including codepoints that happen to fall in the emoji range when used as symbols (e.g. checkmarks, arrows, bullets).
+
+Repositories may document stricter checks (scripts, pre-commit); follow those when present.

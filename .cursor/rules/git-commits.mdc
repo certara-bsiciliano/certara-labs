@@ -1,0 +1,19 @@
+---
+description: Use Conventional Commits when committing to git
+alwaysApply: true
+---
+
+# Git commit messages
+
+When the user asks you to commit changes to git, follow Conventional Commits unless a repository documents a different convention (e.g. [coprompter/CONTRIBUTING.md](coprompter/CONTRIBUTING.md)).
+
+**Format:** `<type>[optional scope]: <description>`
+
+**Types:** `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `chore`
+
+**Examples:**
+- `feat: add table prompt strategy selector`
+- `fix(gui): prevent crash on empty doc`
+- `docs: update CONTRIBUTING and commit guidelines`
+
+Use optional scope in parentheses when it helps (e.g. `fix(prompt-wizard):`). Add an optional body after a blank line for context; use footers for `Fixes #123` or `BREAKING CHANGE: ...`. Keep subject under ~72 characters.
