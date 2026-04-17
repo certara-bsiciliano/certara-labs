@@ -19,7 +19,7 @@ Each subdirectory is its **own** git repository. Commit and push **only inside t
 | [coprompter/](coprompter/) | `coprompter/` (that repo’s remote and branches) |
 | [coauthor-wiki/](coauthor-wiki/) | `coauthor-wiki/` |
 | [coauthor-testing/](coauthor-testing/) | `coauthor-testing/` |
-| This parent folder only ([WORKSPACE.md](WORKSPACE.md), [.cursor/](.cursor/), root [AGENTS.md](AGENTS.md), [.cursorignore](.cursorignore)) | Not part of the three repos above. Either maintain a **separate** git repo at the certara-labs parent (if you `git init` here), keep these files local-only, or copy policy into a repo your team uses for shared tooling. |
+| This parent folder only ([WORKSPACE.md](WORKSPACE.md), [.cursor/](.cursor/), root [AGENTS.md](AGENTS.md), [.cursorignore](.cursorignore)) | The **certara-labs** git repo at this path; remote [github.com/certara-bsiciliano/certara-labs](https://github.com/certara-bsiciliano/certara-labs). Subfolders `coprompter/`, `coauthor-wiki/`, `coauthor-testing/` are **not** part of this remote (each has its own repository). |
 
 Example:
 

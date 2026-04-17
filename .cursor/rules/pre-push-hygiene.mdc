@@ -15,6 +15,13 @@ When the user asks to **commit**, **push**, or **finish** work that will land in
 
 4. **Checks:** Run the project’s usual checks before push when they exist (tests, lint, pre-commit, or scripts named in the repo’s README or DEVELOPMENT docs). If nothing is documented, say what you ran or that no standard check was found.
 
-5. **Umbrella-only files:** Files at the certara-labs parent (e.g. root `WORKSPACE.md`, `.cursor/`, `AGENTS.md`) are **not** inside the three subrepos unless you copy them there. If there is no git repo at the parent, either `git init` there for layout-only tracking or keep them local; do not assume they ship with coprompter/wiki/testing commits.
+5. **Umbrella-only files:** Files at the certara-labs parent (e.g. root `WORKSPACE.md`, `.cursor/`, `AGENTS.md`) live in the **parent** git repo ([certara-labs on GitHub](https://github.com/certara-bsiciliano/certara-labs)), not inside coprompter/coauthor-wiki/coauthor-testing. Commit them from the parent directory. Subrepos are listed in `.gitignore` there so nested `.git` folders are not duplicated.
+
+6. **Push every repo that had commits:** When the user asks to **stage, commit, and push** (or **push all** / equivalent) **without** limiting to one subproject, after committing:
+   - `git push` from the **certara-labs parent directory** (workspace root for this layout) if that repo has commits to send to `origin`.
+   - `git push` from **`coprompter/`** if you committed there.
+   - `git push` from **`coauthor-wiki/`** if you committed there.
+   - `git push` from **`coauthor-testing/`** if you committed there.
+   Use each repo’s current branch (usually `main`). Skip repos with **no new commits** or **nothing to push**. Report each remote result briefly.
 
 Skip heavy doc or test work for trivial typo-only fixes when the user asks to push immediately.
